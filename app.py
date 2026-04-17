@@ -146,7 +146,27 @@ class App(tk.Tk):
         self._start_protocol()
         self.after(50, self._poll)
 
+                # FULLSCREEN ENABLE
+        self.fullscreen = True
+        self.attributes("-fullscreen", True)
+
+        # TOGGLE CONTROLS
+        self.bind("<F11>", self.toggle_fullscreen)
+        self.bind("<Escape>", self.exit_fullscreen)
+
+
     # ── UI Construction ───────────────────────────────────────────────────────
+
+
+    def toggle_fullscreen(self, event=None):
+        self.fullscreen = not self.fullscreen
+        self.attributes("-fullscreen", self.fullscreen)
+
+    def exit_fullscreen(self, event=None):
+        self.fullscreen = False
+        self.attributes("-fullscreen", False)
+
+
 
     def _build_ui(self):
         # ── Top bar ──────────────────────────────────────────────────
@@ -154,10 +174,12 @@ class App(tk.Tk):
         topbar.pack(fill=tk.X, side=tk.TOP)
         topbar.pack_propagate(False)
 
-        tk.Label(topbar, text="⚗  SAWMECRYPTO", font=self.fonts['title'],
+        tk.Label(topbar, text="⚗  AntSaw", font=self.fonts['title'],
                  fg=ALICE_C, bg=BG).pack(side=tk.LEFT, padx=20, pady=8)
-        tk.Label(topbar, text="Transparent Key Exchange + Sawme Cipher Chat",
+        tk.Label(topbar, text="⚗  AntSaw — Transparent Key Exchange",
                  font=self.fonts['body'], fg=MUTED, bg=BG).pack(side=tk.LEFT)
+
+
 
         self.status_lbl = tk.Label(topbar, text="● Initialising…",
                                    font=self.fonts['label'], fg=WARN, bg=BG)
