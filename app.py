@@ -174,9 +174,9 @@ class App(tk.Tk):
         topbar.pack(fill=tk.X, side=tk.TOP)
         topbar.pack_propagate(False)
 
-        tk.Label(topbar, text="⚗  AntSaw", font=self.fonts['title'],
+        tk.Label(topbar, text="⚗  AntSow", font=self.fonts['title'],
                  fg=ALICE_C, bg=BG).pack(side=tk.LEFT, padx=20, pady=8)
-        tk.Label(topbar, text="⚗  AntSaw — Transparent Key Exchange",
+        tk.Label(topbar, text="⚗  AntSow — Transparent Key Exchange",
                  font=self.fonts['body'], fg=MUTED, bg=BG).pack(side=tk.LEFT)
 
 
